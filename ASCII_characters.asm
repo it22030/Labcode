@@ -4,21 +4,21 @@
     m db 'I am Ashik. My student id is: IT22030', 0ah, 0dh, '$'
 .code
 main proc
-    ; Initialize data segment
-    mov ax, @data  ; Fixed: comma instead of underscore
-    mov ds, ax     ; Fixed: comma instead of hyphen
+  
+    mov ax, @data  
+    mov ds, ax     
 
     ; Display student info
-    mov ah, 9      ; Fixed: comma instead of underscore
-    lea dx, m      ; Fixed: comma instead of underscore
+    mov ah, 9      
+    lea dx, m     
     int 21h
 
     ; Initialize registers
-    mov cx, 80h    ; Loop 128 times (80h to FFh)
-    mov bh, 80h    ; Start from ASCII 80h
-    mov bl, 0      ; Counter for 10 characters per line
+    mov cx, 80h    
+    mov bh, 80h    
+    mov bl, 0      
 
-    mov ah, 2      ; DOS character output function
+    mov ah, 2     
 
 print_loop:
     ; Print current ASCII character
@@ -26,7 +26,7 @@ print_loop:
     int 21h
 
     ; Print space separator
-    mov dl, ' '    ; Fixed: proper space character
+    mov dl, ' '    
     int 21h
 
     ; Move to next ASCII character
